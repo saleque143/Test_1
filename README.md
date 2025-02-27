@@ -19,6 +19,11 @@ This system consists of a 5G Standalone (SA) Core Network, multiple UPFs allocat
 
 Through the automated deployment of new UPFs when current ones surpass their thresholds, the project facilitates dynamic UPF scaling, guaranteeing effective traffic control. Furthermore, it uses Docker and Docker Compose for smooth deployment and offers thorough traffic analysis using iperf3.
 
+## System Architecture
+
+![image](https://github.com/user-attachments/assets/a724debe-6e8f-4254-8691-245851bb8446)
+
+
 ## Requirements:
 
 - Operating System: Ubuntu 20.04.06 LTS (Focal Fossa) (Linux recommended)
