@@ -105,11 +105,37 @@ docker compose -f compose-files/network-slicing/docker-compose.yaml --env-file=.
 ```
 
 
-```diff
--      - address: 127.0.0.5
-+      - address: 192.168.0.111
+### Changes in configuration files of Open5GS 5GC U-Plane2
 
-##
+- `docker-open5gs/configs/etc/network-scicling/packetrusher-1.yaml`
+```diff
+--- upf.yaml.orig       2024-03-24 15:36:48.000000000 +0900
++++ upf.yaml    2024-03-25 20:18:50.813311682 +0900
+@@ -10,16 +10,17 @@
+ upf:
+   pfcp:
+     server:
+-      - address: 127.0.0.7
++      - address: 192.168.0.115
+     client:
+ #      smf:     #  UPF PFCP Client try to associate SMF PFCP Server
+ #        - address: 127.0.0.4
+   gtpu:
+     server:
+-      - address: 127.0.0.7
++      - address: 192.168.0.115
+   session:
+-    - subnet: 10.45.0.1/16
+-    - subnet: 2001:db8:cafe::1/48
++    - subnet: 10.46.0.1/16
++      dnn: internet
++      dev: ogstun
+   metrics:
+     server:
+       - address: 127.0.0.7
+```
+
+<a id="changes_ueransim"></a>
 
 
 
