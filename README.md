@@ -21,8 +21,7 @@ Through the automated deployment of new UPFs when current ones surpass their thr
 
 ## System Architecture
 
-![image](https://github.com/user-attachments/assets/a724debe-6e8f-4254-8691-245851bb8446)
-
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/System%20Architecture.jpg)
 
 ## Requirements:
 
@@ -143,7 +142,38 @@ docker compose -f compose-files/network-slicing/docker-compose.yaml --env-file=.
 <a id="changes_ueransim"></a>
 
 
+## Dockerized Deployment Overview
 
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Dockerized%20Deployment%20Overview.jpg)
+
+## UPF & Network Slicing
+
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UPF%20%26%20Network%20Slicing-1.jpg)
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UPF%20%26%20Network%20Slicing-2.png)
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UPF%20%26%20Network%20Slicing-3.png)
+
+## Traffic Simulation - UE Sending Traffic via PacketRusher
+
+#### Packetrusher-1 (UE1 Traffic) 
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Simulation%20-%20UE%20Sending%20Traffic%20via%20PacketRusher-P-1.jpg)
+
+#### Packetrusher-2 (UE2 Traffic)
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Simulation%20-%20UE%20Sending%20Traffic%20via%20PacketRusher-P-2.jpg)
+
+#### Packetrusher-3 (UE3 Traffic)
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Simulation%20-%20UE%20Sending%20Traffic%20via%20PacketRusher-P-3.jpg)
+
+## Traffic Received at UPF
+
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Received%20at%20UPF.jpg)
+
+## UPF Internet Connectivity Test
+
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UPF%20Internet%20Connectivity%20Test.jpg)
+
+## Traffic Throughput for Each UE
+
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Throughput%20for%20Each%20UE.jpg)
 
 
 
