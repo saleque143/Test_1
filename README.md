@@ -127,17 +127,13 @@ iperf3 -s -i 1 -p <PORT1> & iperf3 -s -i 1 -p <PORT2> & iperf3 -s -i 1 -p <PO
 
 ```bash
 ip vrf exec <VRF_IF> iperf3 -c <IPERF_SERVER> -p <PORT> -t 9000 -b <BW-K/M/G>
-```
 
-### Or, to generate 10Gbps traffic
+# Or, to generate 10Gbps traffic
 
-```bash
 ip vrf exec <VRF_IF> iperf3 -c <IPERF_SERVER> -p <PORT> -t 9000 -b 10G
-```
 
-### Installing iperf3, (if not found):
+# Installing iperf3, (if not found):
 
-```bash
 apt-get install iperf3 -y
 ```
 
