@@ -52,14 +52,7 @@ git clone https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g.git
 ```bash
 cd mobcom-team_stamhs_5g
 ```
-### Step 2: Install Dependencies
-```bash
-sudo apt update 
-```
-```bash
-sudo apt upgrade
-```
-### Step 3: Configure It 
+### Step 2: Configure It 
 
 First, update the `.env` file with the desired values to use.
 
@@ -85,7 +78,7 @@ The `.env` file is used to build the images using Make or Docker Compose, as wel
 
 `DOCKER_HOST_IP` is the IP address of the host running Docker.
 
-### Step 4: Build The Docker Images
+### Step 3: Build The Docker Images
 
 > Tip: This is the recommended way to build the project, you can build the images all at once with a single command taking advantage of docker buildx parallelism.
 
@@ -95,7 +88,7 @@ From the top level directory of the repository run:
 ```bash
 docker buildx bake
 ```
-### Step 5: Run The Containers
+### Step 4: Run The Containers
 
 Select the appropriate deployment and from the top level directory of the repository run:
 
@@ -107,7 +100,6 @@ Tear down the network-slicing deployment
 ```bash
 docker compose -f compose-files/network-slicing/docker-compose.yaml --env-file=.env down
 ```
-
 
 ### Changes in configuration files of Open5GS 5GC U-Plane2
 
@@ -141,39 +133,97 @@ docker compose -f compose-files/network-slicing/docker-compose.yaml --env-file=.
 
 <a id="changes_ueransim"></a>
 
+## Testing:
 
-## Dockerized Deployment Overview
+### Route adding at upfs:
+
+```bash
+docker exec -it <CONTAINER_NAME> /bin/bash
+```
+
+```bash
+ip route add <UE1_IP_SUBNET> via <UPF_IP> dev <UPF_Interface>
+```
+
+```bash
+ip route del <UE2_IP_SUBNET> via <UPF_IP> dev <UPF_Interface>
+```
+
+### Listening traffic to receive:
+
+```bash
+iperf3 -s -i 1 -p <PORT1> & iperf3 -s -i 1 -p <PORT2> & iperf3 -s -i 1 -p <PORT3> &
+```
+
+### Generate traffic at UEs:
+
+```bash
+ip vrf exec <VRF_IF> iperf3 -c <IPERF_SERVER> -p <PORT> -t 9000 -b <BW-K/M/G>
+```
+
+### Or, to generate 10Gbps traffic
+
+```bash
+ip vrf exec <VRF_IF> iperf3 -c <IPERF_SERVER> -p <PORT> -t 9000 -b 10G
+```
+
+### Installing iperf3, (if not found):
+
+```bash
+apt-get install iperf3 -y
+```
+
+#### Dockerized Deployment Overview
 
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Dockerized%20Deployment%20Overview.jpg)
 
-## UPF & Network Slicing
+#### UE Registration
+
+##### UE-1 
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UE1%20registration.jpeg)
+
+##### UE-2 
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UE2%20Registration.jpeg)
+
+##### UE-3 
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UE3%20registration.jpeg)
+
+#### IP configurations of UPFs and Packetrusher
+##### UPFs
 
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UPF%20%26%20Network%20Slicing-1.jpg)
+
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UPF%20%26%20Network%20Slicing-2.png)
+
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UPF%20%26%20Network%20Slicing-3.png)
 
-## Traffic Simulation - UE Sending Traffic via PacketRusher
-
-#### Packetrusher-1 (UE1 Traffic) 
+##### Packetrusher-1
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Simulation%20-%20UE%20Sending%20Traffic%20via%20PacketRusher-P-1.jpg)
 
-#### Packetrusher-2 (UE2 Traffic)
+##### Packetrusher-2
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Simulation%20-%20UE%20Sending%20Traffic%20via%20PacketRusher-P-2.jpg)
 
-#### Packetrusher-3 (UE3 Traffic)
+##### Packetrusher-3
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Simulation%20-%20UE%20Sending%20Traffic%20via%20PacketRusher-P-3.jpg)
 
-## Traffic Received at UPF
+#### Listening to receive traffic
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/ready%20to%20receive%20iperf3%20traffics%20from%20multi-ues(3).jpeg)
+
+#### Traffic Throughput for Each UE
+
+![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Throughput%20for%20Each%20UE.jpg)
+
+#### Traffic Received at UPF
 
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Received%20at%20UPF.jpg)
 
-## UPF Internet Connectivity Test
+#### UPF Internet Connectivity Test
 
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UPF%20Internet%20Connectivity%20Test.jpg)
 
-## Traffic Throughput for Each UE
+## Conclusion:
 
-![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/Traffic%20Throughput%20for%20Each%20UE.jpg)
+This project implements an independent 5G Core Network (5GC) using Open5GS network slicing, multiple User Plane Functions (UPFs), and a Dockerized setup, ensuring efficient traffic management across UPFs, UEs, and gNBs. By integrating Packetrusher, the system creates a realistic 5G RAN simulation with multiple gNBs and UEs, enabling extensive traffic generation and analysis. Additionally, iperf3 testing confirms that traffic from multiple UEs is effectively distributed among UPFs based on S-NSSAI, ensuring proper network slicing. Although dynamic UPF scaling was attempted but not achieved, this project lays a strong foundation for manual UPF management and configuration, allowing traffic to be efficiently distributed among UPFs based on S-NSSAI. The use of Docker and Docker Compose enhances modularity and scalability, making the system adaptable for future research and development.
 
 
 
