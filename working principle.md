@@ -29,12 +29,12 @@ Upon receiving this configuration in the 5G Core, the dedicated AMF uses it to s
 
 **for SMF1:**
 ```yaml
--plmn_id:
-mcc: 262
-mnc: 02
+- plmn_id:
+  mcc: 262
+  mnc: 02
 s_nssai:
-- sst: 1
-  sd: 000001
+  - sst: 1
+    sd: 000001
 ```
 and so on.
 
