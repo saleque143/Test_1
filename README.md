@@ -1,12 +1,16 @@
 <h1 align="center">Team_STAMHS_5G</h1>
-<p align="center">
-    <strong>Description</strong>
-    <br>
-    Comment
-    <br>
-    Members of the group incl. matriculation number
-</p>
-<br/>
+<div align="center">
+ 
+| Name                  | Matriculation Number |  
+|-----------------------|---------|  
+| Md. Ashraf Uddin     | 1398481 |  
+| Tanvir Ahmed         | 1386435 |  
+| Saleque Ahmed        | 1393172 |  
+| Md. Sohel Rana       | 1428128 |  
+| Hasibuzzaman        | 1448140 |  
+| Md. Mosharraf Hossain | 1386448 |  
+
+</div>
 
 
 # 5G Core Network with Dynamic Slicing and Orchestration
@@ -187,10 +191,7 @@ apt-get install iperf3 -y
 
 ## Conclusion:
 
-This project implements an independent 5G Core Network (5GC) using Open5GS network slicing, multiple User Plane Functions (UPFs), and a Dockerized setup, ensuring efficient traffic management across UPFs, UEs, and gNBs. By integrating Packetrusher, the system creates a realistic 5G RAN simulation with multiple gNBs and UEs, enabling extensive traffic generation and analysis. Additionally, iperf3 testing confirms that traffic from multiple UEs is effectively distributed among UPFs based on S-NSSAI, ensuring proper network slicing. Although dynamic UPF scaling was attempted but not achieved, this project lays a strong foundation for manual UPF management and configuration, allowing traffic to be efficiently distributed among UPFs based on S-NSSAI. The use of Docker and Docker Compose enhances modularity and scalability, making the system adaptable for future research and development.
-
-
-
+In this project, we have created an independent 5G Core Network (5GC) with Open5GS that features support for network slicing, multiple User Plane Functions (UPFs), and a containerized architecture. This architecture efficiently routes traffic among UPFs, User Equipments (UEs), and gNodeBs (gNBs) efficiently. We have created an efficient 5G RAN simulation with Packetrusher support featuring multiple gNBs and UEs to support extensive traffic generation and testing. Besides this, iperf3 testing checks that traffic between different UEs is correctly divided between UPFs in accordance with S-NSSAI to ensure proper network slicing.
 
 
 
