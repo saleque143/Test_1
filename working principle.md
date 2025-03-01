@@ -1,4 +1,4 @@
-# Overview of the network slicing deployment
+# Overview of the open5gs network slicing deployment
 
 The Open5GS `network-slicing` deployment is designed to work with PacketRusher, which simulates gNBs and UEs, while only exposing the `MongoDB database` via TCP port `27017`.
 
