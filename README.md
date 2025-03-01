@@ -190,16 +190,3 @@ apt-get install iperf3 -y
 ## Conclusion
 
 In this project, we have created an independent 5G Core Network (5GC) with Open5GS that features support for network slicing, multiple User Plane Functions (UPFs), and a containerized architecture. This architecture efficiently routes traffic among UPFs, User Equipments (UEs), and gNodeBs (gNBs) efficiently. We have created an efficient 5G RAN simulation with Packetrusher support featuring multiple gNBs and UEs to support extensive traffic generation and testing. Besides this, iperf3 testing checks that traffic between different UEs is correctly divided between UPFs in accordance with S-NSSAI to ensure proper network slicing.
-
-
-
-
-
-
-
-
-
-
-
-
-
