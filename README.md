@@ -3,11 +3,11 @@
  
 | Name                  | Matriculation Number |  
 |-----------------------|---------|  
-| Md. Ashraf Uddin     | 1398481 |  
-| Tanvir Ahmed         | 1386435 |  
-| Saleque Ahmed        | 1393172 |  
-| Md. Sohel Rana       | 1428128 |  
-| Hasibuzzaman        | 1448140 |  
+| Md. Ashraf Uddin      | 1398481 |  
+| Tanvir Ahmed          | 1386435 |  
+| Saleque Ahmed         | 1393172 |  
+| Md. Sohel Rana        | 1428128 |  
+| Hasibuzzaman          | 1448140 |  
 | Md. Mosharraf Hossain | 1386448 |  
 
 </div>
@@ -15,7 +15,8 @@
 
 # 5G Core Network with Dynamic Slicing and Orchestration
 
-## Introduction:
+## Contents
+## Introduction
 
 The objective of this project is to use Open5GS with Network Slicing, several UPFs, and monitoring tools in Docker for traffic analysis in order to create a standalone 5G Core Network.
 
@@ -27,7 +28,7 @@ Through the automated deployment of new UPFs when current ones surpass their thr
 
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/System%20Architecture.jpg)
 
-## Requirements:
+## Requirements
 
 - Operating System: Ubuntu 20.04.06 LTS (Focal Fossa) (Linux recommended)
 - gtp5g - 5G compatible GTP kernel module
@@ -38,7 +39,7 @@ Through the automated deployment of new UPFs when current ones surpass their thr
 - Grafana (Visualization)
 - Traffic Generators (iperf3)
 
-## Installation Process:
+## Installation Process
 
 ### Step 1: Environment Setup
 - Download and Install Ubuntu 20.04.6 LTS (Focal Fossa) [From here.](https://releases.ubuntu.com/focal/)
@@ -105,7 +106,7 @@ Tear down the network-slicing deployment
 docker compose -f compose-files/network-slicing/docker-compose.yaml --env-file=.env down
 ```
 
-## Testing:
+## Testing
 
 ### Route adding at upfs:
 
@@ -189,7 +190,7 @@ apt-get install iperf3 -y
 
 ![image](https://github.com/MobileComputingWiSe24-25/mobcom-team_stamhs_5g/blob/main/resources/images/UPF%20Internet%20Connectivity%20Test.jpg)
 
-## Conclusion:
+## Conclusion
 
 In this project, we have created an independent 5G Core Network (5GC) with Open5GS that features support for network slicing, multiple User Plane Functions (UPFs), and a containerized architecture. This architecture efficiently routes traffic among UPFs, User Equipments (UEs), and gNodeBs (gNBs) efficiently. We have created an efficient 5G RAN simulation with Packetrusher support featuring multiple gNBs and UEs to support extensive traffic generation and testing. Besides this, iperf3 testing checks that traffic between different UEs is correctly divided between UPFs in accordance with S-NSSAI to ensure proper network slicing.
 
