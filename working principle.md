@@ -4,7 +4,7 @@ The Open5GS `network-slicing` deployment is designed to work with PacketRusher, 
 
 This deployment integrates `PacketRusher` (gNB and UE) without building Docker images from this repository. Instead, it pulls pre-built images from the `ghcr.io/borjis131` registry, which are originally built from this repository.
 
-The setup connects three UEs (`UE1, UE2, and UE3`) to three gNBs, utilizing three separate PacketRusher files. This approach is necessary due to PacketRusher’s known limitation of supporting 'multi-ue` vrf tunneling within a Docker network. The UEs are configured to select three different network slices based on their `S-NSSAI`, all of which are defined in the Open5GS 5G Core configuration files.
+The setup connects three UEs (`UE1, UE2, and UE3`) to three gNBs, utilizing three separate PacketRusher files. This approach is necessary due to PacketRusher’s known limitation of supporting `multi-ue` vrf tunneling within a Docker network. The UEs are configured to select three different network slices based on their `S-NSSAI`, all of which are defined in the Open5GS 5G Core configuration files.
 
 UE1 configuration:
 ```yaml
