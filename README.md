@@ -15,14 +15,11 @@
 
 # 5G Core Network with Dynamic Slicing and Orchestration
 
-## Contents
 ## Introduction
 
-The objective of this project is to use Open5GS with Network Slicing, several UPFs, and monitoring tools in Docker for traffic analysis in order to create a standalone 5G Core Network.
+The goal of this project is to use Open5GS to deploy Network Slicing in order to create a standalone 5G core network, 5G RAN based on Packetrusher, 5G RAN with multiple gNBs each using its own responsible AMF, 5G UE (User Equipment) based on Packetrusher using 
 
-This system consists of a 5G Standalone (SA) Core Network, multiple UPFs allocated per slice (S-NSSAI), Packetrusher-generated User Equipment (UE) traffic, a simulated 5G RAN with multiple gNBs, and Prometheus & Grafana for real-time monitoring.
-
-Through the automated deployment of new UPFs when current ones surpass their thresholds, the project facilitates dynamic UPF scaling, guaranteeing effective traffic control. Furthermore, it uses Docker and Docker Compose for smooth deployment and offers thorough traffic analysis using iperf3.
+Docker and Docker Compose. And Implementation of a management and orchestration solution for Docker containers and 5G NFs. Also, to implement auto scale up of UPFs when the traffic threshold is  exceeded.
 
 ## System Architecture
 
