@@ -25,7 +25,7 @@ sst: 3
 sd: 000001
 ```
 
-**Upon receiving this configuration in the 5G Core, the dedicated AMF uses it to select the appropriate SMF.**
+Upon receiving this configuration in the 5G Core, the dedicated AMF uses it to select the appropriate SMF.
 
 for SMF1:
 ```yaml
