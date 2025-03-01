@@ -28,13 +28,15 @@ sd: 000001
 Upon receiving this configuration in the 5G Core, the dedicated AMF uses it to select the appropriate SMF.
 
 #for SMF1
+```yaml
 -plmn_id:
 mcc: 262
 mnc: 02
 s_nssai:
 - sst: 1
    sd: 000001
- and so on.
+``` 
+and so on.
 
 SMF1 is configured to serve the sst: 1 and sd: 000001.
 
